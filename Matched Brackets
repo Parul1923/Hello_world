@@ -1,0 +1,40 @@
+# include <bits/stdc++.h>
+using namespace std; 
+int main(){
+  int n,x,temp=0,i,a,v,p,ma,maxx,b;
+  stack <char> s; 
+  cin>>n; 
+  ma=0;
+  maxx=0;
+  v=0;
+  for(i=0;i<n;i++){
+    cin>>x; 
+    if(x==1){
+      if(v==1){
+        p=i;
+        v=0;
+      }
+      s.push('(');
+        if(s.size()>ma){
+          a=i;
+          ma=s.size();
+        }
+    }
+    else{
+      if(!s.empty()){
+        s.pop();
+        temp++;
+      }
+    }
+    if(s.empty()){
+      v=1;
+      if(maxx<temp){
+        maxx=temp;
+        b=p;
+      }
+      temp=0;
+    }
+  }
+  cout<<ma<<" "<<(a+1)<<" "<<2*maxx<<" "<<b+1; 
+  return 0;
+}
