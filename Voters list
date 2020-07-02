@@ -1,0 +1,48 @@
+# include <bits/stdc++.h>
+using namespace std; 
+int main(){
+  int a,b,i,maxx,count,c;
+  cin>>a>>b>>c; 
+  int ar[a],arr[b],p[c];
+  for(i=0;i<a;i++){
+    cin>>ar[i];
+  }
+  for(i=0;i<b;i++){
+    cin>>arr[i];
+  }
+  for(i=0;i<c;i++){
+    cin>>p[i];
+  }
+  sort(ar,ar+a);
+  sort(arr,arr+b);
+  sort(p,p+c);
+  maxx=max({ar[a-1],arr[b-1],p[c-1]});
+  int sum[maxx+1]={0};
+  count=0;
+  for(i=0;i<a;i++){
+    sum[ar[i]]++;
+    if(sum[ar[i]]==2){
+      count++;
+    }
+  }
+  for(i=0;i<b;i++){
+    sum[arr[i]]++;
+    if(sum[arr[i]]==2){
+      count++;
+    }
+  }
+  for(i=0;i<c;i++){
+    sum[p[i]]++;
+    if(sum[p[i]]==2){
+      count++;
+    }
+  }
+  cout<<count<<"\n";
+  for(i=0;i<=maxx; i++){
+    if(sum[i]>=2){
+      cout<<i; 
+      cout<<"\n";
+    }
+  }
+  return 0;
+}
