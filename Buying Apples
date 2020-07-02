@@ -1,0 +1,34 @@
+# include <bits/stdc++.h>
+using namespace std; 
+void dp(long long int ar[],long long int k){
+  long long int i,j,temp;
+  long long int sum[1001];
+  for(i=1;i<=k;i++){
+    sum[i]=ar[i];
+  }
+  for(i=2;i<=k;i++){
+    for(j=1;j<i;j++){
+        if(ar[i-j]==-1 || sum[j]==-1)
+            continue;
+        if(sum[i]==-1)
+            sum[i]=sum[j]+ar[i-j];
+        else
+            sum[i]=min(sum[j]+ar[i-j],sum[i]);
+    }
+   }
+  cout<<sum[k];
+}
+int main(){
+ long long int t,n,k,i;
+  cin>>t; 
+  while(t--){
+    cin>>n>>k; 
+    long long int ar[k+1];
+    for(i=1;i<=k;i++){
+      cin>>ar[i];
+    }
+    dp(ar,k);
+    cout<<"\n";
+  }
+  return 0;
+} 
