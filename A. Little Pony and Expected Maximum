@@ -1,0 +1,14 @@
+# include <bits/stdc++.h>
+using namespace std; 
+int main(){
+  int m, i, n; 
+  double sum, temp; 
+  cin>>m>>n; 
+  sum=0.00000000000;
+  for(i=1;i<=m; i++){
+  temp=i*(pow(((double)i/m),n)-pow(((double)(i-1)/m),n));
+    sum=sum+temp;
+  }
+  printf("%.12lf",sum);
+  return 0;
+}
