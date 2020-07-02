@@ -1,0 +1,38 @@
+# include <bits/stdc++.h>
+using namespace std;
+int main(){
+  int n,i,v,j; 
+  cin>>n; 
+  string str; 
+  vector <string> vec; 
+  string ar[n];
+  int arr[n];
+  j=0;
+  while(n--){
+    cin>>str; 
+    if(find(vec.begin(),vec.end(),str)!=vec.end()){
+      cout<<str; 
+      v=0;
+      for(i=0;i<j;i++){
+        if(str==ar[i]){
+          cout<<arr[i]+1;
+          arr[i]++;
+          v=1;
+          break; 
+        }
+      }
+      if(v==0){
+        ar[j]=str; 
+        arr[j]=1;
+        j++;
+        cout<<"1";
+      }
+    }
+    else{
+      cout<<"OK";
+      vec.push_back(str);
+    }
+    cout<<"\n";
+  }
+  return 0;
+}
