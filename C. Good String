@@ -1,0 +1,24 @@
+# include <iostream>
+using namespace std; 
+int main(){
+  int n,i; 
+  cin>>n; 
+  string str, ans=""; 
+  cin>>str;
+  for(i=0;i<n;i++){
+    if(str[i]!=ans.back()){
+      ans.push_back(str[i]);
+    }
+    else
+    if(ans.size()%2==0){
+      ans.push_back(str[i]);
+    }
+  }
+  if(ans.size()%2!=0){
+    ans.pop_back();
+  }
+  cout<<(n-ans.size());
+  cout<<"\n";
+  cout<<ans; 
+  return 0;
+}
