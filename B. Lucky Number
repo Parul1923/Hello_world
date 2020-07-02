@@ -1,0 +1,22 @@
+# include <iostream>
+# include <algorithm>
+using namespace std; 
+int main(){
+  long long int n; 
+  cin>>n; 
+  string str="47";
+  while(stoll(str)<n){
+  bool ans=next_permutation(str.begin(),str. end());
+  if(ans==1){
+  if(stoll(str)>=n){
+    break; 
+  }
+  }
+  else{
+    str=str+"47";
+    sort(str.begin(),str.end());
+  }
+  }
+  cout<<str; 
+  return 0;
+}
